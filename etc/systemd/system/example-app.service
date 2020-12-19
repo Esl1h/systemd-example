@@ -1,0 +1,23 @@
+[Unit]
+Description=App Example service
+After=network-online.target multi-user.target appstore-web.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+NotifyAccess=all
+Restart=on-failure
+RestartSec=20
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/opt/example-app/bin
+ExecStart=/opt/example-app/run.sh start 
+ExecStop=/opt/example-app/run.sh stop
+ExecReload=/opt/example-app/run.sh restart
+PIDFile=/opt/example-app/app.pid
+
+[Install]
+WantedBy=multi-user.target
+
+# All configurations:
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html
