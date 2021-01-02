@@ -1,6 +1,6 @@
 [Unit]
 Description=App Example service
-After=network-online.target multi-user.target appstore-web.service
+After=network-online.target multi-user.target
 
 [Service]
 Type=simple
